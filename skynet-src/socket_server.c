@@ -501,7 +501,9 @@ static socklen_t
 udp_socket_address(struct socket *s, const uint8_t udp_address[UDP_ADDRESS_SIZE], union sockaddr_all *sa) {
 	int type = (uint8_t)udp_address[0];
 	if (type != s->protocol)
+	{
 		return 0;
+	}
 	uint16_t port = 0;
 	memcpy(&port, udp_address+1, sizeof(uint16_t));
 	switch (s->protocol) {

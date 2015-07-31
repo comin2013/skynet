@@ -10,7 +10,9 @@ FILE *
 skynet_log_open(struct skynet_context * ctx, uint32_t handle) {
 	const char * logpath = skynet_getenv("logpath");
 	if (logpath == NULL)
+	{
 		return NULL;
+	}
 	size_t sz = strlen(logpath);
 #ifdef _MSC_VER
 	assert(sz <= 1024);

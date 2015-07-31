@@ -570,7 +570,10 @@ cmd_logon(struct skynet_context * context, const char * param) {
 		return NULL;
 	struct skynet_context * ctx = skynet_handle_grab(handle);
 	if (ctx == NULL)
+	{
 		return NULL;
+	}
+
 	FILE *f = NULL;
 	FILE * lastf = ctx->logfile;
 	if (lastf == NULL) {
@@ -593,7 +596,10 @@ cmd_logoff(struct skynet_context * context, const char * param) {
 		return NULL;
 	struct skynet_context * ctx = skynet_handle_grab(handle);
 	if (ctx == NULL)
+	{
 		return NULL;
+
+	}
 	FILE * f = ctx->logfile;
 	if (f) {
 		// logfile may close in other thread
